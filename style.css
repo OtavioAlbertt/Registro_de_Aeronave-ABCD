@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/*  */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,11 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    background: linear-gradient(135deg, rgba(15, 15, 35, 0.8) 0%, rgba(26, 26, 46, 0.8) 50%, rgba(22, 33, 62, 0.8) 100%), url('fab.png') center center / 800px 800px no-repeat;
+    background-size: 400% 400%, 800px 800px;
+    background-position: 0% 50%, center center; /* Gradiente começa em 0% 50%, logo fixa no centro */
+    background-attachment: fixed; /* Fundo fixo durante rolagem */
+    animation: gradientShift 15s ease infinite;
     color: #ffffff;
     min-height: 100vh;
     display: flex;
@@ -206,22 +210,10 @@ button[type="submit"]:active, #copyButton:active {
     }
 }
 
-/* Aviation-themed background animation */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></svg>') repeat;
-    animation: twinkle 10s linear infinite;
-    z-index: -1;
-}
-
-@keyframes twinkle {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100px); }
+@keyframes gradientShift {
+    0% { background-position: 0% 50%, center center; } /* Gradiente se move, logo fica fixa */
+    50% { background-position: 100% 50%, center center; }
+    100% { background-position: 0% 50%, center center; }
 }
 
 .notification {
