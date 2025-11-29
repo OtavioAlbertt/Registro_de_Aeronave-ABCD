@@ -1,5 +1,0 @@
-- [ ] Add URL da Foto field to index.html
-- [ ] Add image display div to index.html
-- [ ] Update script.js to handle URL da Foto in validation and message
-- [ ] Add event listener in script.js to display image on URL input
-- [ ] Test the functionality
